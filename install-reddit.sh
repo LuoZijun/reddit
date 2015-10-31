@@ -114,6 +114,8 @@ HERE
 # Wait for all the services to be up
 ###############################################################################
 # cassandra doesn't auto-start after install
+# cassandra 需要的硬件配置资源较高，无法在  VPS 中启动。
+# 请在 合适的硬件中启动.
 service cassandra start
 service rabbitmq-server start
 service postgresql start
