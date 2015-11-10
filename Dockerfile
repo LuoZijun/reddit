@@ -1,6 +1,7 @@
 
 
-FROM ubuntu/ubuntu14.04.2
+#FROM ubuntu/ubuntu14.04.2
+FROM registry.mirrors.aliyuncs.com/library/ubuntu:14.04
 
 #RUN echo "deb-src http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu/ trusty main" > /etc/apt/sources.list \
 #   && echo "deb http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu/ trusty-updates main" >> /etc/apt/sources.list \
