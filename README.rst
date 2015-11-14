@@ -47,8 +47,14 @@ reddit代码部署
 	# or 
 	# docker build -t luozijun/reddit-web .
 	# run
-	docker run -t -i -p 80:80 luozijun/reddit-web bash
+	docker run -t -i -expose=2000-10000 luozijun/reddit-web bash
 
 进入Docker 容器后，执行 `/code/install-reddit.sh` 脚本，不出意外，一切应该美好运行 :))
 
 
+测试
+-----------
+
+参考reddit官方维基: https://github.com/reddit/reddit/wiki/reddit-install-script-for-Ubuntu
+
+可能会遇到的一些问题: https://github.com/reddit/reddit/wiki/FAQ
