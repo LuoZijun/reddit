@@ -6,6 +6,11 @@ reddit代码部署
 
 .. contents::
 
+.. image:: itworks.png
+    :alt: Restless Oyster online monitoring tool
+    :width: 700
+    :align: center
+
 
 创建Reddit系统镜像
 ----------------------
