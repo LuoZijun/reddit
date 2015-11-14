@@ -1,5 +1,5 @@
 echo "Building docker image ..."
-docker build -t reddit/system .
+docker build -t luozijun/reddit-web .
 echo "done."
 
 

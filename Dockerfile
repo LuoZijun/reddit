@@ -1,11 +1,9 @@
-FROM luozijun/reddit-system:lastest
-
-RUN rm -rf /code
+FROM luozijun/reddit-system
 
 RUN mkdir /code
 ADD . /code
 WORKDIR /code
 
-# script 
+# script
 CMD bash install-reddit.sh
 
