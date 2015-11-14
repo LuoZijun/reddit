@@ -143,14 +143,6 @@ for port in 11211 5432 5672 9160; do
     done
 done
 
-
-# 设置区域语言(PostgreSQL 需要)
-# http://www.postgresql.org/message-id/AANLkTilNkBeNbP0QaSyi9kbDI4icIivEE4z25YNrGlw0@mail.gmail.com
-# 确保 en_US.utf8 在你的区域语言的支持列表里面。
-echo -e "zh_CN.UTF-8 UTF-8\nzh_CN GB2312\nzh_CN.GBK GBK\nen_US.UTF-8 UTF-8\nfr_FR ISO-8859-1\nzh_CN.GB18030 GB18030\n">/var/lib/locales/supported.d/local
-locale-gen --purge;
-locale-gen -a;
-
 ###############################################################################
 # Install the reddit source repositories
 ###############################################################################
