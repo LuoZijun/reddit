@@ -48,8 +48,8 @@ set -e
 # Configuration
 ###############################################################################
 # which user to install the code for; defaults to the user invoking this script
-REDDIT_USER=${REDDIT_USER:-$SUDO_USER}
-
+#REDDIT_USER=${REDDIT_USER:-$SUDO_USER}
+REDDIT_USER="root"
 # the group to run reddit code as; must exist already
 REDDIT_GROUP=${REDDIT_GROUP:-nogroup}
 
@@ -116,7 +116,16 @@ HERE
 # cassandra doesn't auto-start after install
 # cassandra 需要的硬件配置资源较高，无法在  VPS 中启动。
 # 请在 合适的硬件中启动.
-service cassandra start
+#service cassandra start
+#ulimit -n 16000
+#service docker.io stop
+# docker.io -d
+
+cassandra
+# If you are running Docker via Upstart, you probably want to add a `limits` stanza to /etc/init/docker.conf as described here: https://coderwall.com/p/myodcq
+# https://groups.google.com/forum/#!topic/docker-user/T45Kc9vD804
+# https://coderwall.com/p/myodcq/setting-max-file-descriptors-and-other-limits-with-upstart-on-debian-ubuntu
+
 service rabbitmq-server start
 service postgresql start
 memcached -u www-data -d
@@ -133,6 +142,14 @@ for port in 11211 5432 5672 9160; do
         sleep 1
     done
 done
+
+
+# 设置区域语言(PostgreSQL 需要)
+# http://www.postgresql.org/message-id/AANLkTilNkBeNbP0QaSyi9kbDI4icIivEE4z25YNrGlw0@mail.gmail.com
+# 确保 en_US.utf8 在你的区域语言的支持列表里面。
+echo -e "zh_CN.UTF-8 UTF-8\nzh_CN GB2312\nzh_CN.GBK GBK\nen_US.UTF-8 UTF-8\nfr_FR ISO-8859-1\nzh_CN.GB18030 GB18030\n">/var/lib/locales/supported.d/local
+locale-gen --purge
+locale-gen -a
 
 ###############################################################################
 # Install the reddit source repositories
