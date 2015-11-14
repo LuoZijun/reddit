@@ -1,7 +1,7 @@
 
 
-#FROM ubuntu/ubuntu14.04.2
-FROM registry.mirrors.aliyuncs.com/library/ubuntu:14.04
+FROM ubuntu:14.04
+#FROM registry.mirrors.aliyuncs.com/library/ubuntu:14.04
 
 #RUN echo "deb-src http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu/ trusty main" > /etc/apt/sources.list \
 #   && echo "deb http://ap-northeast-1.ec2.archive.ubuntu.com/ubuntu/ trusty-updates main" >> /etc/apt/sources.list \
@@ -14,6 +14,20 @@ FROM registry.mirrors.aliyuncs.com/library/ubuntu:14.04
 #   && echo "deb-src http://security.ubuntu.com/ubuntu trusty-security main" >> /etc/apt/sources.list \
 #   && echo "deb http://security.ubuntu.com/ubuntu trusty-security universe" >> /etc/apt/sources.list \
 #   && echo "deb-src http://security.ubuntu.com/ubuntu trusty-security universe" >> /etc/apt/sources.list
+
+
+RUN echo "deb http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse" > /etc/apt/sources.list \
+	&& echo "deb http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb-src http://mirrors.163.com/ubuntu/ trusty main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb-src http://mirrors.163.com/ubuntu/ trusty-security main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb-src http://mirrors.163.com/ubuntu/ trusty-updates main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb-src http://mirrors.163.com/ubuntu/ trusty-proposed main restricted universe multiverse" >> /etc/apt/sources.list \
+	&& echo "deb-src http://mirrors.163.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list
+
+
 
 RUN apt-get update -y
 RUN apt-get install vim wget curl -y
